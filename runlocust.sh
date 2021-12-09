@@ -1,3 +1,3 @@
 #!/bin/bash
-#* LOCUST_HOST
-locust --headless --users 100 --spawn-rate 10
+#* --host!!
+locust --headless --users 400 --spawn-rate 20

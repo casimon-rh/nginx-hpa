@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx-hpa
+    app.kubernetes.io/component: nginx-hpa
+    app.kubernetes.io/instance: nginx-hpa
+    app.kubernetes.io/name: nginx-hpa
+    app.kubernetes.io/part-of: nginx-hpa-app
+    app.openshift.io/runtime-version: latest
+  name: nginx-hpa
+  namespace: nginx-hpa
+spec:
+  clusterIP: 172.30.216.99
+  clusterIPs:
+  - 172.30.216.99
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: 8443-tcp
+    port: 8443
+    protocol: TCP
+    targetPort: 8443
+  - name: 9113-tcp
+    port: 9113
+    protocol: TCP
+    targetPort: 9113
+  selector:
+    app: nginx-hpa
+    deploymentconfig: nginx-hpa
+  sessionAffinity: None
+  type: ClusterIP

@@ -1,0 +1,2 @@
+rate(nginx_http_requests_total{namespace="nginx-hpa"}[1m])
+
